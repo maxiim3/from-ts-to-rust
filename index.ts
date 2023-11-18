@@ -1,14 +1,22 @@
-// @ts-expect-error
-import fs from 'fs'
+enum Color {
+   Red,
+   Green,
+   Blue,
+   Yellow
+}
 
-type Line = string
-type Index = number
+function printColor(color: Color) {
+   switch (color) {
+      case Color.Blue:
+         console.log('blue')
+         break
+      case Color.Red:
+         console.log('red')
+         break
+      case Color.Green:
+         console.log('green')
+         break
+   }
+}
 
-fs
-   .readFileSync('file.txt')
-   .toString()
-   .split('\n')
-   .filter((line: Line, index: Index) => index % 2 === 0 && line)
-   .splice(2, 2)
-   .forEach((line: Line) => console.log(line))
-
+printColor(Color.Yellow)
